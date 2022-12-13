@@ -1,3 +1,4 @@
+import 'package:fl_components/screens/screens.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -16,7 +17,16 @@ class HomeScreen extends StatelessWidget {
           leading: const Icon( Icons.access_time_outlined),
           title: const Text('Route name'),
           onTap: (){
-            
+
+            // final route = MaterialPageRoute(
+            //   builder: (context) => const Listview1Screen()
+            //   );
+
+            // //Navigator.pushReplacement(context, route); // quita el boton atras, para login porej
+            // Navigator.push(context, route);
+
+            Navigator.pushNamed(context, 'alert');
+
           },
         ),
         separatorBuilder: (_,__) => const Divider(),
