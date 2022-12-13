@@ -1,5 +1,6 @@
-import 'package:fl_components/theme/app_theme.dart';
 import 'package:flutter/material.dart';
+
+import '../widgets/widgets.dart';
 
 class CardScreen extends StatelessWidget {
    
@@ -13,20 +14,13 @@ class CardScreen extends StatelessWidget {
       ),
       body: ListView(
         padding: const EdgeInsets.symmetric( horizontal: 20, vertical: 10),
-        children: [
+        children: const [
           
-          Card(
-            child: Column(
-              children: const [
-                ListTile(
-                  leading: Icon( Icons.photo_album_outlined, color: AppTheme.primary),
-                  title: Text('I am a title'),
-                  subtitle: Text('lorem lorem ajsdlkajldkasjldkjasdlkaj'),
-                )
-
-              ],
-            )
-          )
+          CustomCardType1(),
+          CustomCardType1(),
+          CustomCardType1(),
+          CustomCardType1(),
+          CustomCardType1(),
         
 
 
@@ -34,3 +28,4 @@ class CardScreen extends StatelessWidget {
     );
   }
 }
+

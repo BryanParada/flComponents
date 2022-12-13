@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 
 class AppTheme {
 
-  static const Color primary = Color.fromARGB(255, 125, 110, 212);
+  static const Color primary = Colors.orange;
 
   static final ThemeData lightTheme = ThemeData.light().copyWith(
         // Color primario
@@ -15,6 +15,11 @@ class AppTheme {
         appBarTheme: const AppBarTheme(
           color: primary,
           elevation: 4
+        ),
+
+        //TextButton Theme
+        textButtonTheme: TextButtonThemeData(
+          style: TextButton.styleFrom(foregroundColor: primary,)
         )
 
       );
