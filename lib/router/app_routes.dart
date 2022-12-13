@@ -1,5 +1,6 @@
 
 
+import 'package:fl_components/models/models.dart';
 import 'package:flutter/material.dart';
 
 import '../screens/screens.dart';
@@ -7,6 +8,15 @@ import '../screens/screens.dart';
 class AppRoutes {
 
   static const initialRoute = 'home';
+
+  static final menuOptions = <MenuOption>[
+    //TODO: borrar home
+      MenuOption(route: 'home', name: 'Home Screen', screen: const HomeScreen(), icon: Icons.home),
+      MenuOption(route: 'listview1', name: 'Listview Type 1', screen: const HomeScreen(), icon: Icons.list_alt),
+      MenuOption(route: 'listview2', name: 'Listview Type 2', screen: const HomeScreen(), icon: Icons.list),
+      MenuOption(route: 'alert', name: 'Alerts', screen: const AlertScreen(), icon: Icons.add_alert_rounded),
+      MenuOption(route: 'card', name: 'Card', screen: const CardScreen(), icon: Icons.card_giftcard),
+      ];
 
 static Map<String, Widget Function(BuildContext)> routes = {
 
