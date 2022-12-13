@@ -1,4 +1,5 @@
 import 'package:fl_components/router/app_routes.dart';
+import 'package:fl_components/theme/app_theme.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -14,7 +15,7 @@ class HomeScreen extends StatelessWidget {
       ),
       body: ListView.separated(
         itemBuilder: (context, i) => ListTile(
-          leading: Icon(AppRoutes.menuOptions[i].icon, color: Colors.indigo), //const Icon( Icons.access_time_outlined)
+          leading: Icon(AppRoutes.menuOptions[i].icon, color: AppTheme.primary), //const Icon( Icons.access_time_outlined)
           title: Text(AppRoutes.menuOptions[i].name), //const Text('Route name')
           onTap: (){
 
