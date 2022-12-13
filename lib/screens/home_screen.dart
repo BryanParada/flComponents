@@ -1,4 +1,4 @@
-import 'package:fl_components/screens/screens.dart';
+import 'package:fl_components/router/app_routes.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -13,9 +13,9 @@ class HomeScreen extends StatelessWidget {
         elevation: 0, //sombra
       ),
       body: ListView.separated(
-        itemBuilder: (context, index) => ListTile(
-          leading: const Icon( Icons.access_time_outlined),
-          title: const Text('Route name'),
+        itemBuilder: (context, i) => ListTile(
+          leading: Icon(AppRoutes.menuOptions[i].icon, color: Colors.indigo), //const Icon( Icons.access_time_outlined)
+          title: Text(AppRoutes.menuOptions[i].name), //const Text('Route name')
           onTap: (){
 
             // final route = MaterialPageRoute(
@@ -25,12 +25,13 @@ class HomeScreen extends StatelessWidget {
             // //Navigator.pushReplacement(context, route); // quita el boton atras, para login porej
             // Navigator.push(context, route);
 
-            Navigator.pushNamed(context, 'alert');
-
+            Navigator.pushNamed(context, AppRoutes.menuOptions[i].route); //'alert'
+            
           },
         ),
         separatorBuilder: (_,__) => const Divider(),
-        itemCount: 10)
+        itemCount: AppRoutes.menuOptions.length
+        )
     );
   }
 }
