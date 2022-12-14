@@ -1,10 +1,46 @@
+import 'dart:io';
+
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class AlertScreen extends StatelessWidget {
    
   const AlertScreen({Key? key}) : super(key: key);
 
-  void displayDialog(BuildContext context){
+  void displayDialogIOS( BuildContext context){
+
+    showCupertinoDialog(
+      //barrierDismissible: true,
+        context: context, 
+        builder: (context) {
+          return CupertinoAlertDialog(
+              title: const Text('Title'),
+              content: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: const [ 
+                Text('This is the content of the alert'),
+                SizedBox(height: 10),
+                FlutterLogo( size: 100)
+            ]),
+
+            actions: [
+            TextButton(
+                onPressed: () => Navigator.pop(context),
+                child: const Text('Cancel', style: TextStyle( color: Colors.red))
+              ),
+              TextButton(
+                onPressed: () => Navigator.pop(context),
+                child: const Text('Ok')
+              ) 
+          ]
+
+          );
+        }
+    );
+
+  }
+
+  void displayDialogAndroid(BuildContext context){
    
    showDialog(
     barrierDismissible: false,
@@ -26,7 +62,11 @@ class AlertScreen extends StatelessWidget {
           actions: [
             TextButton(
                 onPressed: () => Navigator.pop(context),
-                child: const Text('Cancel')
+                child: const Text('Cancel', style: TextStyle( color: Colors.red))
+              ),
+              TextButton(
+                onPressed: () => Navigator.pop(context),
+                child: const Text('Ok')
               )
 
           ]
@@ -52,7 +92,9 @@ class AlertScreen extends StatelessWidget {
             padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
             child: Text('Show Alert', style: TextStyle( fontSize: 25)),
           ), 
-          onPressed: () => displayDialog(context), //() cuando usamos Buildcontext
+          onPressed: () => Platform.isAndroid 
+          ? displayDialogAndroid(context)
+          : displayDialogIOS(context), //() cuando usamos Buildcontext
 
          ),
       ),
