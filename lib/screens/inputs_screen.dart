@@ -15,9 +15,17 @@ class InputsScreen extends StatelessWidget {
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-          child: Column(children: [
+          child: Column (children: const[
 
-              CustomInputField( labelText: 'Name', hintText: 'Username', helperText: 'Only letters') 
+              CustomInputField( labelText: 'Name', hintText: 'User Name', helperText: 'Only letters'),
+              SizedBox( height: 30,),
+              CustomInputField( labelText: 'Last Name', hintText: 'Last name', helperText: 'Only letters'),
+              SizedBox( height: 30,),
+              CustomInputField( labelText: 'Email', hintText: 'Email', helperText: 'your email', keybType: TextInputType.emailAddress),
+              SizedBox( height: 30,),
+              CustomInputField( labelText: 'Password', hintText: 'Password', helperText: 'Type a strong password', obscureText: true, ),
+              SizedBox( height: 30,),
+
 
           ],)
         ),
