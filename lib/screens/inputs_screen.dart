@@ -43,6 +43,22 @@ class InputsScreen extends StatelessWidget {
                 const SizedBox( height: 30,),
                 CustomInputField( labelText: 'Password', hintText: 'Password', helperText: 'Type a strong password', obscureText: true, formProperty: 'password', formValues: formValues ),
                 const SizedBox( height: 30,),
+
+
+                DropdownButtonFormField<String>( //String no es necesario
+                  items: const [
+                    DropdownMenuItem(value: 'Admin', child: Text('Admin')),
+                    DropdownMenuItem(value: 'Superuser', child: Text('Superuser')),
+                    DropdownMenuItem(value: 'Dveloper', child: Text('Dveloper')),
+                    DropdownMenuItem(value: 'Jr Developer', child: Text('Jr Developer')),
+                  ],
+                  onChanged: (value) {
+                    print(value);
+                    formValues['role'] = value ?? 'Admin';
+                  },
+                ),
+
+
           
                 ElevatedButton(
                   child: const SizedBox(
