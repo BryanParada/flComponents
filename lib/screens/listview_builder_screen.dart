@@ -36,12 +36,21 @@ class _ListViewBuilderScreenState extends State<ListViewBuilderScreen> {
     isLoading = true;
     setState(() {});
 
-    Future.delayed(const Duration( seconds: 3));
+    await Future.delayed(const Duration( seconds: 3));
 
     add5();
 
     isLoading = false;
     setState(() {});
+
+    //evitar que pantalla se mueva si no estoy al final
+    if (scrollController.position.pixels + 100 <= scrollController.position.maxScrollExtent) return;
+
+    scrollController.animateTo(
+      scrollController.position.pixels +120, //offset
+      duration: const Duration(milliseconds: 300),
+      curve: Curves.fastOutSlowIn
+      );
 
   }
 
@@ -81,13 +90,13 @@ class _ListViewBuilderScreenState extends State<ListViewBuilderScreen> {
                 },
               ),
 
+              if(isLoading)
               Positioned(
                 bottom: 40,
                 left: size.width * 0.5 - 30, //30 = la mitad de width 60 en el container _LoadingIcon
                 child: const _LoadingIcon()
-                ),
-
-
+                ) 
+               
           ],
         ),
       ),
